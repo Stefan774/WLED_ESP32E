@@ -1,1 +1,6 @@
-
+[env:custom_build]
+extends = env:esp32dev
+build_flags = ${env:esp32dev.build_flags} -D USERMOD_AUDIOREACTIVE -D USERMOD_AUTO_SAVE -D USERMOD_BATTERY
+lib_deps = 
+  ${env:esp32dev.lib_deps}
+  https://github.com/blazoncek/arduinoFFT.git
