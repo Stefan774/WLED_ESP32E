@@ -31,7 +31,7 @@ jobs:
         npm install
         echo '[env:custom_build]' >>platformio.ini
         echo 'extends = env:esp32dev' >>platformio.ini
-        echo 'build_flags = ${env:esp32dev.build_flags} -D USERMOD_AUDIOREACTIVE -D USERMOD_AUTO_SAVE -D USERMOD_BATTERY' >>platformio.ini
+        echo 'build_flags = ${env:esp32dev.build_flags} -D USERMOD_AUDIOREACTIVE -D USERMOD_AUTO_SAVE -D USERMOD_MULTI_RELAY -D USERMOD_BATTERY' >>platformio.ini
         echo 'lib_deps = ' >>platformio.ini
         echo '  ${env:esp32dev.lib_deps}' >>platformio.ini
         echo '  https://github.com/blazoncek/arduinoFFT.git' >>platformio.ini
@@ -49,7 +49,7 @@ jobs:
         cd $GITHUB_WORKSPACE
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
-        git add $GITHUB_WORKSPACE/custom_build.bin
+        git add $GITHUB_WORKSPACE/custom_build_with_mRelay.bin
         git add $GITHUB_WORKSPACE/last_update_date.txt
         git commit -m "Commit Custom Build"
         git push origin main
